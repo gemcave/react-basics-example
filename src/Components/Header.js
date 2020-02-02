@@ -1,6 +1,12 @@
 import React from 'react';
 import {Navbar, Nav, Container,Form,FormControl,Button} from 'react-bootstrap'
 import logo from './logo192.png'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from '../Pages/Home';
+import Contacts from '../Pages/Contacts';
+import About from '../Pages/About';
+import Blog from '../Pages/Blog';
+
 
 const Header = () => {
 	return (
@@ -25,6 +31,14 @@ const Header = () => {
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
+		<Router>
+			<Switch>
+				<Route exact path="/" component={Home}  />
+				<Route exact path="/about" component={About}  />
+				<Route exact path="/blog" component={Blog}  />
+				<Route exact path="/contacts" component={Contacts}  />
+			</Switch>
+		</Router>
 		</>
 	);
 };
